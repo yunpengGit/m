@@ -39,17 +39,17 @@ module.exports = {
   // 默认情况下，生成的静态资源在它们的文件名中包含了 hash 以便更好的控制缓存。如果你无法使用 Vue CLI 生成的 index HTML，你可以通过将这个选项设为 false 来关闭文件名哈希。
   filenameHashing: true,
   pages: page,
-  productionSourceMap: false, // 生产环境 sourceMap
+  productionSourceMap: false,
   css: {
     loaderOptions: {
       postcss: {
         plugins: [
           Pxtorem({
-            rootValue: 75, // 换算的基数
-            selectorBlackList: ['weui', 'mu'], // 忽略转换正则匹配项
-            propList: ['*'] // 对所有css属性进行转换rem
+            rootValue: 75,
+            selectorBlackList: ['weui', 'mu'],
+            propList: ['*']
           }),
-          Autoprefixer({// 浏览器兼容，自动添加前缀
+          Autoprefixer({
             overrideBrowserslist: ['Android >= 4.0', 'iOS >= 7']
           })
         ]
@@ -57,11 +57,10 @@ module.exports = {
     }
   },
   devServer: {
-    open: true, // 启动后在浏览器打开
-    // host: 'localhost', // 主机名，也可以127.0.0.0 || 做真机测试时候0.0.0.0
+    open: true,
     host: 'localhost',
-    port: 8081, // 端口号，默认8080
-    https: false, // 协议
-    hotOnly: false // 没啥效果，热模块，webpack已经做好
+    port: 8081,
+    https: false,
+    hotOnly: false
   }
 }
